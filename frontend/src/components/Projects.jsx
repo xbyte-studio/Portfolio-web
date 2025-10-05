@@ -1,22 +1,35 @@
 import React, { useState } from 'react';
 import { Eye, Heart } from 'lucide-react';
 import { projects } from '../mock';
+import ProjectModal from './ProjectModal';
 
 const Projects = () => {
   const [activeFilter, setActiveFilter] = useState('all');
   const [hoveredId, setHoveredId] = useState(null);
+  const [selectedProject, setSelectedProject] = useState(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   const categories = [
     { id: 'all', label: 'All Work' },
     { id: 'video', label: 'Video Editing' },
     { id: 'poster', label: 'Poster Design' },
     { id: 'branding', label: 'Logo & Branding' },
-    { id: 'web', label: 'Web Design' }
+    { id: 'web', label: 'Social Media' }
   ];
 
   const filteredProjects = activeFilter === 'all' 
     ? projects 
     : projects.filter(p => p.category === activeFilter);
+
+  const handleProjectClick = (project) => {
+    setSelectedProject(project);
+    setIsModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setIsModalOpen(false);
+    setTimeout(() => setSelectedProject(null), 300);
+  };
 
   return (
     <section id="projects" className="py-32 px-6 bg-gradient-to-br from-gray-50 to-white">
@@ -57,6 +70,7 @@ const Projects = () => {
               style={{ animationDelay: `${0.1 * index}s` }}
               onMouseEnter={() => setHoveredId(project.id)}
               onMouseLeave={() => setHoveredId(null)}
+              onClick={() => handleProjectClick(project)}
             >
               {/* Image */}
               <div className="relative h-80 overflow-hidden">
@@ -107,6 +121,13 @@ const Projects = () => {
           ))}
         </div>
       </div>
+
+      {/* Project Modal */}
+      <ProjectModal 
+        project={selectedProject}
+        isOpen={isModalOpen}
+        onClose={closeModal}
+      />
     </section>
   );
 };

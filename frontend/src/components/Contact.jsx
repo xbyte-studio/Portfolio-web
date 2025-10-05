@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
-import { Send, Mail, Phone, MapPin, CheckCircle } from 'lucide-react';
+import { Send, Mail, Phone, MapPin, CheckCircle, Instagram, Globe } from 'lucide-react';
 import { useToast } from '../hooks/use-toast';
+import { contactInfo } from '../mock';
 
 const Contact = () => {
   const { toast } = useToast();
@@ -70,7 +71,9 @@ const Contact = () => {
                 </div>
                 <div>
                   <p className="text-sm text-gray-500">Email</p>
-                  <p className="text-gray-900 font-medium">albin@example.com</p>
+                  <a href={`mailto:${contactInfo.email}`} className="text-gray-900 font-medium hover:text-blue-600 transition-colors">
+                    {contactInfo.email}
+                  </a>
                 </div>
               </div>
 
@@ -80,7 +83,9 @@ const Contact = () => {
                 </div>
                 <div>
                   <p className="text-sm text-gray-500">Phone</p>
-                  <p className="text-gray-900 font-medium">+91 XXXXX XXXXX</p>
+                  <a href={`tel:${contactInfo.phone}`} className="text-gray-900 font-medium hover:text-blue-600 transition-colors">
+                    {contactInfo.phone}
+                  </a>
                 </div>
               </div>
 
@@ -90,7 +95,31 @@ const Contact = () => {
                 </div>
                 <div>
                   <p className="text-sm text-gray-500">Location</p>
-                  <p className="text-gray-900 font-medium">Kerala, India</p>
+                  <p className="text-gray-900 font-medium">{contactInfo.location}</p>
+                </div>
+              </div>
+
+              <div className="flex items-center space-x-4">
+                <div className="w-12 h-12 bg-gray-100 rounded-full flex items-center justify-center">
+                  <Globe size={20} className="text-gray-700" />
+                </div>
+                <div>
+                  <p className="text-sm text-gray-500">Portfolio Website</p>
+                  <a href={`https://${contactInfo.website}`} target="_blank" rel="noopener noreferrer" className="text-gray-900 font-medium hover:text-blue-600 transition-colors">
+                    {contactInfo.website}
+                  </a>
+                </div>
+              </div>
+
+              <div className="flex items-center space-x-4">
+                <div className="w-12 h-12 bg-gray-100 rounded-full flex items-center justify-center">
+                  <Instagram size={20} className="text-gray-700" />
+                </div>
+                <div>
+                  <p className="text-sm text-gray-500">Instagram</p>
+                  <a href={`https://instagram.com/${contactInfo.instagram}`} target="_blank" rel="noopener noreferrer" className="text-gray-900 font-medium hover:text-blue-600 transition-colors">
+                    @{contactInfo.instagram}
+                  </a>
                 </div>
               </div>
             </div>

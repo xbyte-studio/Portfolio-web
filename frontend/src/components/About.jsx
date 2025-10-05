@@ -1,4 +1,5 @@
 import React from 'react';
+import { contactInfo, software } from '../mock';
 
 const About = () => {
   const keywords = ['design', 'edit', 'create'];
@@ -23,32 +24,42 @@ const About = () => {
               About Me
             </h2>
             <p className="text-xl text-gray-600 leading-relaxed">
-              I'm a freelance graphic designer and video editor passionate about creating 
-              clean, impactful visuals that tell compelling stories.
+              I'm a freelance graphic designer and video editor with over 2 years of experience, 
+              passionate about creating clean, impactful visuals that tell compelling stories.
             </p>
             <p className="text-lg text-gray-600 leading-relaxed">
-              With a keen eye for detail and a love for minimalist aesthetics, I focus on 
-              delivering designs that not only look beautiful but also serve their purpose 
-              effectively. Every project is an opportunity to {' '}
+              With expertise in Adobe Creative Suite (Photoshop, Premiere Pro, Illustrator), CapCut, and Canva, 
+              I focus on delivering designs that not only look beautiful but also serve their purpose effectively. 
+              Every project is an opportunity to {' '}
               <span className="keyword-highlight">design</span> with intention, {' '}
               <span className="keyword-highlight">edit</span> with precision, and {' '}
               <span className="keyword-highlight">create</span> with passion.
             </p>
             <p className="text-lg text-gray-600 leading-relaxed">
-              Based in Kerala, India, I work with clients globally to bring their creative 
-              visions to life through thoughtful design and seamless execution.
+              Currently working at xbyte-studio Co. and serving clients globally from Kerala, India. 
+              I specialize in poster design, video editing, social media ads, logo design, and flyer creation.
             </p>
             
-            <div className="flex flex-wrap gap-3 pt-4">
-              {['Graphic Design', 'Video Editing', 'Brand Identity', 'Motion Graphics', 'UI/UX'].map((skill, index) => (
-                <span 
-                  key={skill}
-                  className="px-4 py-2 bg-gray-100 rounded-full text-sm text-gray-700 hover:bg-gray-200 transition-colors duration-300"
-                  style={{ animationDelay: `${0.4 + index * 0.1}s` }}
-                >
-                  {skill}
-                </span>
-              ))}
+            {/* Skills */}
+            <div>
+              <h3 className="text-lg font-semibold text-gray-900 mb-3">Software Expertise</h3>
+              <div className="flex flex-wrap gap-3">
+                {software.map((tool, index) => (
+                  <span 
+                    key={tool}
+                    className="px-4 py-2 bg-gray-100 rounded-full text-sm text-gray-700 hover:bg-gray-200 transition-colors duration-300 fade-in-up"
+                    style={{ animationDelay: `${0.4 + index * 0.1}s` }}
+                  >
+                    {tool}
+                  </span>
+                ))}
+              </div>
+            </div>
+
+            {/* Education */}
+            <div className="pt-4 border-t border-gray-200">
+              <h3 className="text-lg font-semibold text-gray-900 mb-2">Education</h3>
+              <p className="text-gray-600">St Mary's HSS Murickassery (2023-2026)</p>
             </div>
           </div>
         </div>
