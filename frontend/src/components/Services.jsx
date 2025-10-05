@@ -1,5 +1,5 @@
 import React from 'react';
-import { Video, Image, Sparkles, Globe } from 'lucide-react';
+import { Video, Image, Sparkles, Globe, ArrowRight } from 'lucide-react';
 import { services } from '../mock';
 
 const iconMap = {
@@ -30,27 +30,36 @@ const Services = () => {
             return (
               <div
                 key={service.id}
-                className="group relative p-8 bg-gradient-to-br from-gray-50 to-white rounded-3xl border border-gray-200 hover:border-gray-300 hover:shadow-2xl transition-all duration-500 fade-in-up"
+                className="group relative p-8 bg-gradient-to-br from-gray-50 to-white rounded-3xl border border-gray-200 hover:border-gray-300 transition-all duration-500 fade-in-up cursor-pointer"
                 style={{ animationDelay: `${0.1 * index}s` }}
               >
                 {/* Icon */}
-                <div className="w-16 h-16 mb-6 bg-gray-900 rounded-2xl flex items-center justify-center group-hover:scale-110 group-hover:rotate-3 transition-all duration-500">
+                <div className="w-16 h-16 mb-6 bg-gray-900 rounded-2xl flex items-center justify-center group-hover:scale-110 group-hover:rotate-6 transition-all duration-500">
                   <Icon className="text-white" size={32} />
                 </div>
 
                 {/* Content */}
-                <h3 className="text-2xl font-bold text-gray-900 mb-3">
+                <h3 className="text-2xl font-bold text-gray-900 mb-3 group-hover:text-blue-600 transition-colors duration-300">
                   {service.title}
                 </h3>
                 <p className="text-gray-600 mb-4 leading-relaxed">
                   {service.description}
                 </p>
-                <p className="text-sm font-semibold text-blue-600">
+                <p className="text-sm font-semibold text-blue-600 mb-4">
                   {service.price}
                 </p>
 
-                {/* Hover effect */}
-                <div className="absolute inset-0 rounded-3xl bg-gradient-to-br from-blue-500/5 to-purple-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 -z-10" />
+                {/* Learn More Link */}
+                <div className="flex items-center text-gray-900 font-medium opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-y-2 group-hover:translate-y-0">
+                  <span className="mr-2">Learn More</span>
+                  <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform duration-300" />
+                </div>
+
+                {/* Hover shadow effect */}
+                <div className="absolute inset-0 rounded-3xl shadow-none group-hover:shadow-2xl transition-shadow duration-500 -z-10" />
+                
+                {/* Hover gradient overlay */}
+                <div className="absolute inset-0 rounded-3xl bg-gradient-to-br from-blue-500/0 to-purple-500/0 group-hover:from-blue-500/5 group-hover:to-purple-500/5 transition-all duration-500 -z-10" />
               </div>
             );
           })}

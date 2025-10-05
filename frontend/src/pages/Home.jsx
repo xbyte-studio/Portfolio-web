@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import Navigation from '../components/Navigation';
 import Hero from '../components/Hero';
 import About from '../components/About';
+import Stats from '../components/Stats';
 import Projects from '../components/Projects';
 import Services from '../components/Services';
 import Testimonials from '../components/Testimonials';
@@ -35,6 +36,7 @@ const Home = () => {
       <Navigation />
       <Hero />
       <About />
+      <Stats />
       <Projects />
       <Services />
       <Testimonials />

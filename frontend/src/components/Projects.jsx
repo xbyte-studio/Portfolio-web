@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Eye, Heart } from 'lucide-react';
 import { projects } from '../mock';
 
 const Projects = () => {
@@ -38,8 +39,8 @@ const Projects = () => {
               onClick={() => setActiveFilter(cat.id)}
               className={`px-6 py-3 rounded-full text-sm font-medium transition-all duration-300 ${
                 activeFilter === cat.id
-                  ? 'bg-gray-900 text-white shadow-lg scale-105'
-                  : 'bg-white text-gray-700 hover:bg-gray-100 hover:shadow-md'
+                  ? 'bg-gray-900 text-white shadow-xl scale-105'
+                  : 'bg-white text-gray-700 hover:bg-gray-100 hover:shadow-lg hover:scale-105'
               }`}
             >
               {cat.label}
@@ -52,7 +53,7 @@ const Projects = () => {
           {filteredProjects.map((project, index) => (
             <div
               key={project.id}
-              className="group relative overflow-hidden rounded-2xl bg-white shadow-lg hover:shadow-2xl transition-all duration-500 fade-in-up"
+              className="group relative overflow-hidden rounded-2xl bg-white shadow-lg hover:shadow-2xl transition-all duration-500 fade-in-up cursor-pointer"
               style={{ animationDelay: `${0.1 * index}s` }}
               onMouseEnter={() => setHoveredId(project.id)}
               onMouseLeave={() => setHoveredId(null)}
@@ -62,13 +63,32 @@ const Projects = () => {
                 <img
                   src={project.image}
                   alt={project.title}
-                  className={`w-full h-full object-cover transition-transform duration-700 ${
-                    hoveredId === project.id ? 'scale-110' : 'scale-100'
+                  className={`w-full h-full object-cover transition-all duration-700 ${
+                    hoveredId === project.id ? 'scale-110 brightness-75' : 'scale-100 brightness-100'
                   }`}
                 />
-                <div className={`absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent transition-opacity duration-500 ${
+                
+                {/* Gradient overlay on hover */}
+                <div className={`absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent transition-opacity duration-500 ${
                   hoveredId === project.id ? 'opacity-100' : 'opacity-0'
-                }`} />
+                }`}>
+                  {/* Action icons */}
+                  <div className="absolute top-4 right-4 flex space-x-2">
+                    <button className="w-10 h-10 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center hover:bg-white/30 transition-all duration-300 transform hover:scale-110">
+                      <Eye size={18} className="text-white" />
+                    </button>
+                    <button className="w-10 h-10 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center hover:bg-white/30 transition-all duration-300 transform hover:scale-110">
+                      <Heart size={18} className="text-white" />
+                    </button>
+                  </div>
+
+                  {/* View button */}
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <button className="px-8 py-4 bg-white text-gray-900 rounded-full font-semibold hover:bg-gray-100 transition-all duration-300 transform hover:scale-105 shadow-xl">
+                      View Project
+                    </button>
+                  </div>
+                </div>
               </div>
 
               {/* Content */}
@@ -81,14 +101,8 @@ const Projects = () => {
                 </p>
               </div>
 
-              {/* Hover overlay */}
-              <div className={`absolute inset-0 flex items-center justify-center transition-opacity duration-500 ${
-                hoveredId === project.id ? 'opacity-100' : 'opacity-0 pointer-events-none'
-              }`}>
-                <button className="px-6 py-3 bg-white text-gray-900 rounded-full font-medium hover:bg-gray-100 transition-colors duration-300">
-                  View Details
-                </button>
-              </div>
+              {/* Bottom border animation */}
+              <div className="absolute bottom-0 left-0 w-0 h-1 bg-gradient-to-r from-blue-500 to-purple-500 group-hover:w-full transition-all duration-500" />
             </div>
           ))}
         </div>
