@@ -305,6 +305,94 @@ nav.on{
 }
 .tool:hover{transform:translateY(-3px);box-shadow:var(--sh2);background:rgba(255,255,255,.95)}
 
+/* ── BEHANCE ─────────────────────────────────── */
+.beh-sec{background:var(--bg)}
+.beh-header{display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:44px;flex-wrap:wrap;gap:16px}
+.beh-link{
+  display:inline-flex;align-items:center;gap:8px;
+  font-size:13px;font-weight:500;color:var(--gray2);
+  text-decoration:none;
+  border:0.5px solid var(--line);
+  background:var(--glass);
+  backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
+  padding:9px 18px;border-radius:var(--pill);
+  box-shadow:var(--sh);
+  transition:background .2s,color .2s,transform .2s;
+}
+.beh-link:hover{background:var(--white);color:var(--black);transform:scale(1.02)}
+.beh-link svg{width:14px;height:14px;fill:currentColor;flex-shrink:0}
+.beh-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.beh-card{
+  background:var(--white);
+  border-radius:var(--r);overflow:hidden;
+  box-shadow:var(--sh);
+  transition:transform .35s cubic-bezier(.23,1,.32,1),box-shadow .35s;
+  text-decoration:none;display:block;
+  will-change:transform;
+}
+.beh-card:hover{transform:translateY(-6px);box-shadow:var(--sh2)}
+.beh-thumb{
+  width:100%;aspect-ratio:4/3;overflow:hidden;
+  background:var(--off);position:relative;
+}
+.beh-thumb img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .5s cubic-bezier(.23,1,.32,1)}
+.beh-card:hover .beh-thumb img{transform:scale(1.05)}
+/* Placeholder when no image */
+.beh-thumb-placeholder{
+  width:100%;height:100%;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  gap:10px;background:linear-gradient(135deg,var(--off),var(--off2));
+}
+.beh-thumb-placeholder span{font-size:32px}
+.beh-thumb-placeholder p{font-size:11px;color:var(--gray3);letter-spacing:1px;text-transform:uppercase}
+.beh-overlay{
+  position:absolute;inset:0;
+  background:rgba(0,0,0,.0);
+  display:flex;align-items:center;justify-content:center;
+  transition:background .3s;
+}
+.beh-card:hover .beh-overlay{background:rgba(0,0,0,.18)}
+.beh-overlay-icon{
+  width:40px;height:40px;
+  background:rgba(255,255,255,.9);
+  border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  font-size:16px;
+  opacity:0;transform:scale(.7);
+  transition:opacity .3s,transform .3s;
+}
+.beh-card:hover .beh-overlay-icon{opacity:1;transform:scale(1)}
+.beh-info{padding:18px 20px 20px}
+.beh-cat{font-size:10px;font-weight:500;letter-spacing:1.5px;text-transform:uppercase;color:var(--gray3);margin-bottom:5px}
+.beh-title{font-size:15px;font-weight:600;color:var(--black);letter-spacing:-.2px;margin-bottom:4px}
+.beh-desc{font-size:12px;font-weight:300;color:var(--gray2);line-height:1.5}
+.beh-tags{display:flex;flex-wrap:wrap;gap:5px;margin-top:12px}
+.beh-tag{
+  font-size:10px;font-weight:500;color:var(--gray2);
+  background:var(--bg);border-radius:var(--pill);
+  padding:3px 10px;
+}
+/* Add project CTA card */
+.beh-add{
+  background:var(--glass);
+  border:0.5px solid rgba(255,255,255,.7);
+  backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);
+  border-radius:var(--r);
+  box-shadow:var(--sh);
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  gap:12px;padding:40px 24px;text-align:center;
+  border:1.5px dashed var(--off);
+  cursor:pointer;
+  transition:border-color .25s,transform .3s;
+  text-decoration:none;
+}
+.beh-add:hover{border-color:var(--off3);transform:translateY(-4px)}
+.beh-add-icon{font-size:28px}
+.beh-add-t{font-size:13px;font-weight:600;color:var(--black)}
+.beh-add-s{font-size:12px;color:var(--gray3)}
+@media(max-width:860px){.beh-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:520px){.beh-grid{grid-template-columns:1fr}.beh-header{flex-direction:column;align-items:flex-start}}
+
 /* ── EXPERIENCE ──────────────────────────────── */
 .exp-sec{background:var(--white)}
 .exp-list{display:flex;flex-direction:column;gap:10px}
@@ -419,6 +507,7 @@ footer span{font-size:11px;font-weight:400;color:rgba(255,255,255,.28)}
   <ul class="nav-links">
     <li><a href="#about">About</a></li>
     <li><a href="#skills">Skills</a></li>
+    <li><a href="#work">Work</a></li>
     <li><a href="#exp">Experience</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
@@ -558,6 +647,149 @@ footer span{font-size:11px;font-weight:400;color:rgba(255,255,255,.28)}
       <div class="tool">Adobe Premiere Pro</div>
       <div class="tool">Canva</div>
       <div class="tool">CapCut</div>
+    </div>
+  </div>
+</section>
+
+<div class="div"></div>
+
+<!-- BEHANCE PROJECTS -->
+<section class="sec beh-sec" id="work">
+  <div class="cnt">
+    <div class="beh-header">
+      <div>
+        <div class="lbl" data-r="u">Portfolio</div>
+        <h2 class="h2" data-r="u">Featured work.</h2>
+      </div>
+      <a class="beh-link" href="https://www.behance.net/albin_kochumadam" target="_blank" data-r="u">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M22 7h-7V5h7v2zm1.726 10c-.442 1.297-2.029 3-5.101 3-3.074 0-5.564-1.729-5.564-5.675 0-3.91 2.325-5.92 5.466-5.92 3.082 0 4.964 1.782 5.375 4.426.078.506.109 1.188.095 2.14H15.97c.13 1.2.661 1.916 1.61 1.916.47 0 .928-.191 1.223-.619l2.923.132zm-7.268-4h4.399c-.128-1.072-.662-1.916-2.131-1.916-1.335 0-2.084.73-2.268 1.916zM8.307 10.889c.851-.104 1.593-.573 1.593-1.733C9.9 7.862 8.94 7 7.3 7H2v10h5.485c1.9 0 3.155-1.063 3.155-2.998-.001-1.366-.72-2.775-2.333-3.113zM5.07 9.015H6.9c.648 0 1.104.413 1.104.997C8.004 10.6 7.548 11 6.9 11H5.07V9.015zm0 5.014V11.99h2.009c.763 0 1.283.42 1.283 1.017 0 .617-.52 1.022-1.283 1.022H5.07z"/></svg>
+        View on Behance ↗
+      </a>
+    </div>
+
+    <!-- ★ REPLACE each beh-card href with your real Behance project URL  -->
+    <!-- ★ REPLACE data-img with your project image URL, or remove to use placeholder -->
+    <div class="beh-grid" data-sg>
+
+      <!-- Project 1: COCHIN AUTOS -->
+      <a class="beh-card" href="https://www.behance.net/gallery/244609359/COCHIN-AUTOS" target="_blank">
+        <div class="beh-thumb">
+          <img src="https://mir-s3-cdn-cf.behance.net/projects/404/3351ee244609359.Y3JvcCwxNTYzLDEyMjIsMCwxNzA.png" alt="COCHIN AUTOS" loading="lazy"/>
+          <div class="beh-overlay"><div class="beh-overlay-icon">↗</div></div>
+        </div>
+        <div class="beh-info">
+          <div class="beh-cat">Branding</div>
+          <div class="beh-title">COCHIN AUTOS</div>
+          <div class="beh-desc">Brand identity design for an automotive business</div>
+          <div class="beh-tags"><span class="beh-tag">Branding</span><span class="beh-tag">Logo</span><span class="beh-tag">Identity</span></div>
+        </div>
+      </a>
+
+      <!-- Project 2: Trifold Brochure -->
+      <a class="beh-card" href="https://www.behance.net/gallery/244608695/Trifold-Brochure-Ads" target="_blank">
+        <div class="beh-thumb">
+          <img src="https://mir-s3-cdn-cf.behance.net/projects/404/e3b470244608695.Y3JvcCw1NjQ5LDQ0MTksMjkzLDA.jpg" alt="Trifold Brochure Ads" loading="lazy"/>
+          <div class="beh-overlay"><div class="beh-overlay-icon">↗</div></div>
+        </div>
+        <div class="beh-info">
+          <div class="beh-cat">Print Design</div>
+          <div class="beh-title">Trifold Brochure Ads</div>
+          <div class="beh-desc">Professional trifold brochure design for advertising</div>
+          <div class="beh-tags"><span class="beh-tag">Print</span><span class="beh-tag">Brochure</span><span class="beh-tag">Ads</span></div>
+        </div>
+      </a>
+
+      <!-- Project 3: Save the Date -->
+      <a class="beh-card" href="https://www.behance.net/gallery/243381063/Save-the-Date" target="_blank">
+        <div class="beh-thumb">
+          <img src="https://mir-s3-cdn-cf.behance.net/projects/404/85d2ca243381063.Y3JvcCwzODc1LDMwMzAsMCww.jpg" alt="Save the Date" loading="lazy"/>
+          <div class="beh-overlay"><div class="beh-overlay-icon">↗</div></div>
+        </div>
+        <div class="beh-info">
+          <div class="beh-cat">Invitation Design</div>
+          <div class="beh-title">Save the Date</div>
+          <div class="beh-desc">Elegant event invitation and save the date design</div>
+          <div class="beh-tags"><span class="beh-tag">Invitation</span><span class="beh-tag">Event</span><span class="beh-tag">Print</span></div>
+        </div>
+      </a>
+
+      <!-- Project 4: Logo Designing -->
+      <a class="beh-card" href="https://www.behance.net/gallery/243196377/Logo-Designing" target="_blank">
+        <div class="beh-thumb">
+          <img src="https://mir-s3-cdn-cf.behance.net/projects/404/9050c9243196377.Y3JvcCwxNTYzLDEyMjIsMCwxNzA.jpg" alt="Logo Designing" loading="lazy"/>
+          <div class="beh-overlay"><div class="beh-overlay-icon">↗</div></div>
+        </div>
+        <div class="beh-info">
+          <div class="beh-cat">Logo Design</div>
+          <div class="beh-title">Logo Designing</div>
+          <div class="beh-desc">Creative logo design concepts and brand marks</div>
+          <div class="beh-tags"><span class="beh-tag">Logo</span><span class="beh-tag">Vector</span><span class="beh-tag">Brand</span></div>
+        </div>
+      </a>
+
+      <!-- Project 5: Title Graphics -->
+      <a class="beh-card" href="https://www.behance.net/gallery/243196145/Title-Graphics" target="_blank">
+        <div class="beh-thumb">
+          <img src="https://mir-s3-cdn-cf.behance.net/projects/404/11312d243196145.Y3JvcCw1NjYsNDQzLDIwNywyMzQ.png" alt="Title Graphics" loading="lazy"/>
+          <div class="beh-overlay"><div class="beh-overlay-icon">↗</div></div>
+        </div>
+        <div class="beh-info">
+          <div class="beh-cat">Motion & Video</div>
+          <div class="beh-title">Title Graphics</div>
+          <div class="beh-desc">Dynamic title and motion graphics for video content</div>
+          <div class="beh-tags"><span class="beh-tag">Motion</span><span class="beh-tag">Video</span><span class="beh-tag">Graphics</span></div>
+        </div>
+      </a>
+
+      <!-- Project 6: Poster Designing -->
+      <a class="beh-card" href="https://www.behance.net/gallery/243195225/Poster-Desiging" target="_blank">
+        <div class="beh-thumb">
+          <img src="https://mir-s3-cdn-cf.behance.net/projects/404/37358e243195225.Y3JvcCwxNTg2LDEyNDEsMCww.png" alt="Poster Designing" loading="lazy"/>
+          <div class="beh-overlay"><div class="beh-overlay-icon">↗</div></div>
+        </div>
+        <div class="beh-info">
+          <div class="beh-cat">Poster Design</div>
+          <div class="beh-title">Poster Designing</div>
+          <div class="beh-desc">Eye-catching poster designs for events and promotions</div>
+          <div class="beh-tags"><span class="beh-tag">Poster</span><span class="beh-tag">Print</span><span class="beh-tag">Digital</span></div>
+        </div>
+      </a>
+
+      <!-- Project 7: KAAVAL Logo -->
+      <a class="beh-card" href="https://www.behance.net/gallery/239586539/KAAVAL-Logo-Design" target="_blank">
+        <div class="beh-thumb">
+          <img src="https://mir-s3-cdn-cf.behance.net/projects/404/9a04e3239586539.Y3JvcCw1MjM2LDQwOTYsNTMxLDA.png" alt="KAAVAL Logo Design" loading="lazy"/>
+          <div class="beh-overlay"><div class="beh-overlay-icon">↗</div></div>
+        </div>
+        <div class="beh-info">
+          <div class="beh-cat">Logo Design</div>
+          <div class="beh-title">KAAVAL Logo Design</div>
+          <div class="beh-desc">Bold logo design for KAAVAL brand identity</div>
+          <div class="beh-tags"><span class="beh-tag">Logo</span><span class="beh-tag">Brand</span><span class="beh-tag">Vector</span></div>
+        </div>
+      </a>
+
+      <!-- Project 8: KAAVAL Brand Identity -->
+      <a class="beh-card" href="https://www.behance.net/gallery/239586335/KAAVAL-PVT-LTD-Brand-Identity-Concept" target="_blank">
+        <div class="beh-thumb">
+          <img src="https://mir-s3-cdn-cf.behance.net/projects/404/3253ef239586335.Y3JvcCw0MzE0LDMzNzUsMjU2LDA.png" alt="KAAVAL Brand Identity" loading="lazy"/>
+          <div class="beh-overlay"><div class="beh-overlay-icon">↗</div></div>
+        </div>
+        <div class="beh-info">
+          <div class="beh-cat">Brand Identity</div>
+          <div class="beh-title">KAAVAL PVT. LTD — Brand Identity</div>
+          <div class="beh-desc">Full brand identity concept for KAAVAL Pvt. Ltd.</div>
+          <div class="beh-tags"><span class="beh-tag">Branding</span><span class="beh-tag">Identity</span><span class="beh-tag">Concept</span></div>
+        </div>
+      </a>
+
+      <!-- See all CTA -->
+      <a class="beh-add" href="https://www.behance.net/albin_kochumadam" target="_blank">
+        <div class="beh-add-icon">＋</div>
+        <div class="beh-add-t">See all projects</div>
+        <div class="beh-add-s">View full portfolio on Behance</div>
+      </a>
+
     </div>
   </div>
 </section>
