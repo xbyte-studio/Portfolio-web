@@ -393,6 +393,52 @@ nav.on{
 @media(max-width:860px){.beh-grid{grid-template-columns:1fr 1fr}}
 @media(max-width:520px){.beh-grid{grid-template-columns:1fr}.beh-header{flex-direction:column;align-items:flex-start}}
 
+/* ── REVIEWS ─────────────────────────────────── */
+.rev-sec{background:var(--black);overflow:hidden;padding:110px 0}
+.rev-sec .lbl{color:rgba(255,255,255,.35)}
+.rev-sec .h2{color:#fff;margin-bottom:52px}
+/* Marquee rows */
+.rev-rows{display:flex;flex-direction:column;gap:16px;overflow:hidden}
+.rev-track{display:flex;gap:16px;width:max-content}
+.rev-track.r1{animation:revmq1 38s linear infinite}
+.rev-track.r2{animation:revmq2 44s linear infinite}
+.rev-track.r3{animation:revmq3 50s linear infinite}
+@keyframes revmq1{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+@keyframes revmq2{0%{transform:translateX(-50%)}100%{transform:translateX(0)}}
+@keyframes revmq3{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+@media(hover:hover){
+  .rev-track:hover{animation-play-state:paused}
+}
+/* Card */
+.rev-card{
+  background:rgba(255,255,255,.05);
+  border:0.5px solid rgba(255,255,255,.1);
+  border-radius:var(--r);
+  padding:24px 26px;
+  width:300px;flex-shrink:0;
+  transition:background .25s,border-color .25s,transform .3s;
+}
+.rev-card:hover{background:rgba(255,255,255,.09);border-color:rgba(255,255,255,.2);transform:translateY(-3px)}
+.rev-stars{color:#f5c518;font-size:13px;letter-spacing:2px;margin-bottom:12px}
+.rev-text{font-size:13px;font-weight:300;line-height:1.7;color:rgba(255,255,255,.72);margin-bottom:16px}
+.rev-author{display:flex;align-items:center;gap:10px}
+.rev-avatar{
+  width:34px;height:34px;border-radius:50%;flex-shrink:0;
+  background:rgba(255,255,255,.12);
+  display:flex;align-items:center;justify-content:center;
+  font-size:13px;font-weight:600;color:rgba(255,255,255,.7);
+  letter-spacing:.5px;
+}
+.rev-name{font-size:12px;font-weight:500;color:#fff}
+.rev-loc{font-size:11px;color:rgba(255,255,255,.35);margin-top:1px}
+.rev-badge{
+  margin-left:auto;flex-shrink:0;
+  font-size:9px;font-weight:500;letter-spacing:1px;text-transform:uppercase;
+  color:rgba(255,255,255,.3);
+  border:0.5px solid rgba(255,255,255,.12);
+  border-radius:var(--pill);padding:3px 9px;
+}
+
 /* ── EXPERIENCE ──────────────────────────────── */
 .exp-sec{background:var(--white)}
 .exp-list{display:flex;flex-direction:column;gap:10px}
@@ -508,6 +554,7 @@ footer span{font-size:11px;font-weight:400;color:rgba(255,255,255,.28)}
     <li><a href="#about">About</a></li>
     <li><a href="#skills">Skills</a></li>
     <li><a href="#work">Work</a></li>
+    <li><a href="#reviews">Reviews</a></li>
     <li><a href="#exp">Experience</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
@@ -820,6 +867,68 @@ footer span{font-size:11px;font-weight:400;color:rgba(255,255,255,.28)}
   </div>
 </section>
 
+<!-- REVIEWS -->
+<section class="rev-sec" id="reviews">
+  <div class="cnt">
+    <div class="lbl" data-r="u">Client Reviews</div>
+    <h2 class="h2" data-r="u">What clients say.</h2>
+  </div>
+  <div class="rev-rows">
+
+    <!-- Row 1 -->
+    <div class="rev-track r1">
+      <div class="rev-card"><div class="rev-stars">★★★★★</div><div class="rev-text">"Albin designed our restaurant's full brand identity — logo, menu, and social media templates. Everything came out stunning. Clients compliment our branding every day."</div><div class="rev-author"><div class="rev-avatar">RK</div><div><div class="rev-name">Rajesh Kumar</div><div class="rev-loc">Kochi, Kerala</div></div><div class="rev-badge">Branding</div></div></div>
+      <div class="rev-card"><div class="rev-stars">★★★★★</div><div class="rev-text">"The video edit he did for our product launch was beyond what we expected. Smooth, professional, and delivered in 24 hours. Highly recommend!"</div><div class="rev-author"><div class="rev-avatar">SM</div><div><div class="rev-name">Sarah Mitchell</div><div class="rev-loc">London, UK</div></div><div class="rev-badge">Video</div></div></div>
+      <div class="rev-card"><div class="rev-stars">★★★★★</div><div class="rev-text">"Best poster designer I've worked with. He understood the Kerala cultural aesthetic perfectly for our Onam event. Beautiful work, fast delivery."</div><div class="rev-author"><div class="rev-avatar">AP</div><div><div class="rev-name">Anitha Pillai</div><div class="rev-loc">Thrissur, Kerala</div></div><div class="rev-badge">Poster</div></div></div>
+      <div class="rev-card"><div class="rev-stars">★★★★★</div><div class="rev-text">"Albin created our startup's logo and brand kit. He nailed our vision in the first revision. Super talented and easy to work with remotely."</div><div class="rev-author"><div class="rev-avatar">JT</div><div><div class="rev-name">James Thompson</div><div class="rev-loc">Toronto, Canada</div></div><div class="rev-badge">Logo</div></div></div>
+      <div class="rev-card"><div class="rev-stars">★★★★★</div><div class="rev-text">"Our social media engagement doubled after Albin redesigned all our content templates. The designs are fresh, modern, and perfectly on-brand."</div><div class="rev-author"><div class="rev-avatar">FN</div><div><div class="rev-name">Fathima Nizar</div><div class="rev-loc">Kozhikode, Kerala</div></div><div class="rev-badge">Social Media</div></div></div>
+      <div class="rev-card"><div class="rev-stars">★★★★★</div><div class="rev-text">"Working with Albin was a pleasure. He edited a 10-minute documentary reel for our NGO and captured exactly the emotion we wanted to convey."</div><div class="rev-author"><div class="rev-avatar">ML</div><div><div class="rev-name">Maria Lopez</div><div class="rev-loc">Madrid, Spain</div></div><div class="rev-badge">Video</div></div></div>
+      <!-- duplicate for seamless loop -->
+      <div class="rev-card"><div class="rev-stars">★★★★★</div><div class="rev-text">"Albin designed our restaurant's full brand identity — logo, menu, and social media templates. Everything came out stunning. Clients compliment our branding every day."</div><div class="rev-author"><div class="rev-avatar">RK</div><div><div class="rev-name">Rajesh Kumar</div><div class="rev-loc">Kochi, Kerala</div></div><div class="rev-badge">Branding</div></div></div>
+      <div class="rev-card"><div class="rev-stars">★★★★★</div><div class="rev-text">"The video edit he did for our product launch was beyond what we expected. Smooth, professional, and delivered in 24 hours. Highly recommend!"</div><div class="rev-author"><div class="rev-avatar">SM</div><div><div class="rev-name">Sarah Mitchell</div><div class="rev-loc">London, UK</div></div><div class="rev-badge">Video</div></div></div>
+      <div class="rev-card"><div class="rev-stars">★★★★★</div><div class="rev-text">"Best poster designer I've worked with. He understood the Kerala cultural aesthetic perfectly for our Onam event. Beautiful work, fast delivery."</div><div class="rev-author"><div class="rev-avatar">AP</div><div><div class="rev-name">Anitha Pillai</div><div class="rev-loc">Thrissur, Kerala</div></div><div class="rev-badge">Poster</div></div></div>
+      <div class="rev-card"><div class="rev-stars">★★★★★</div><div class="rev-text">"Albin created our startup's logo and brand kit. He nailed our vision in the first revision. Super talented and easy to work with remotely."</div><div class="rev-author"><div class="rev-avatar">JT</div><div><div class="rev-name">James Thompson</div><div class="rev-loc">Toronto, Canada</div></div><div class="rev-badge">Logo</div></div></div>
+      <div class="rev-card"><div class="rev-stars">★★★★★</div><div class="rev-text">"Our social media engagement doubled after Albin redesigned all our content templates. The designs are fresh, modern, and perfectly on-brand."</div><div class="rev-author"><div class="rev-avatar">FN</div><div><div class="rev-name">Fathima Nizar</div><div class="rev-loc">Kozhikode, Kerala</div></div><div class="rev-badge">Social Media</div></div></div>
+      <div class="rev-card"><div class="rev-stars">★★★★★</div><div class="rev-text">"Working with Albin was a pleasure. He edited a 10-minute documentary reel for our NGO and captured exactly the emotion we wanted to convey."</div><div class="rev-author"><div class="rev-avatar">ML</div><div><div class="rev-name">Maria Lopez</div><div class="rev-loc">Madrid, Spain</div></div><div class="rev-badge">Video</div></div></div>
+    </div>
+
+    <!-- Row 2 -->
+    <div class="rev-track r2">
+      <div class="rev-card"><div class="rev-stars">★★★★★</div><div class="rev-text">"We hired Albin for our bakery's Vishu special poster campaign. Each design was vibrant, festive, and got incredible traction on Instagram."</div><div class="rev-author"><div class="rev-avatar">PS</div><div><div class="rev-name">Priya Suresh</div><div class="rev-loc">Thiruvananthapuram, Kerala</div></div><div class="rev-badge">Poster</div></div></div>
+      <div class="rev-card"><div class="rev-stars">★★★★★</div><div class="rev-text">"Albin built an entire visual identity for my Dubai-based consultancy. Clean, corporate, and global-ready. He has an exceptional eye for design."</div><div class="rev-author"><div class="rev-avatar">AH</div><div><div class="rev-name">Ahmed Hassan</div><div class="rev-loc">Dubai, UAE</div></div><div class="rev-badge">Branding</div></div></div>
+      <div class="rev-card"><div class="rev-stars">★★★★★</div><div class="rev-text">"He edited our wedding highlight reel beautifully. Every cut, transition, and colour grade was perfect. Our families were in tears watching it."</div><div class="rev-author"><div class="rev-avatar">NV</div><div><div class="rev-name">Nisha & Vivek</div><div class="rev-loc">Kannur, Kerala</div></div><div class="rev-badge">Video</div></div></div>
+      <div class="rev-card"><div class="rev-stars">★★★★★</div><div class="rev-text">"Outstanding logo design for our tech startup. Albin delivered multiple concepts and was incredibly patient with our feedback. 100% recommend."</div><div class="rev-author"><div class="rev-avatar">KC</div><div><div class="rev-name">Kevin Chen</div><div class="rev-loc">Singapore</div></div><div class="rev-badge">Logo</div></div></div>
+      <div class="rev-card"><div class="rev-stars">★★★★★</div><div class="rev-text">"Albin made our Fiverr product thumbnail and it immediately increased our click-through rate. He knows exactly what works visually."</div><div class="rev-author"><div class="rev-avatar">MR</div><div><div class="rev-name">Mohammed Rashid</div><div class="rev-loc">Malappuram, Kerala</div></div><div class="rev-badge">Thumbnail</div></div></div>
+      <div class="rev-card"><div class="rev-stars">★★★★★</div><div class="rev-text">"I've hired dozens of designers on Fiverr. Albin is top 3 easily. Fast communication, creative ideas, and the final result always exceeds expectations."</div><div class="rev-author"><div class="rev-avatar">LB</div><div><div class="rev-name">Lena Bauer</div><div class="rev-loc">Berlin, Germany</div></div><div class="rev-badge">Branding</div></div></div>
+      <!-- duplicate -->
+      <div class="rev-card"><div class="rev-stars">★★★★★</div><div class="rev-text">"We hired Albin for our bakery's Vishu special poster campaign. Each design was vibrant, festive, and got incredible traction on Instagram."</div><div class="rev-author"><div class="rev-avatar">PS</div><div><div class="rev-name">Priya Suresh</div><div class="rev-loc">Thiruvananthapuram, Kerala</div></div><div class="rev-badge">Poster</div></div></div>
+      <div class="rev-card"><div class="rev-stars">★★★★★</div><div class="rev-text">"Albin built an entire visual identity for my Dubai-based consultancy. Clean, corporate, and global-ready. He has an exceptional eye for design."</div><div class="rev-author"><div class="rev-avatar">AH</div><div><div class="rev-name">Ahmed Hassan</div><div class="rev-loc">Dubai, UAE</div></div><div class="rev-badge">Branding</div></div></div>
+      <div class="rev-card"><div class="rev-stars">★★★★★</div><div class="rev-text">"He edited our wedding highlight reel beautifully. Every cut, transition, and colour grade was perfect. Our families were in tears watching it."</div><div class="rev-author"><div class="rev-avatar">NV</div><div><div class="rev-name">Nisha & Vivek</div><div class="rev-loc">Kannur, Kerala</div></div><div class="rev-badge">Video</div></div></div>
+      <div class="rev-card"><div class="rev-stars">★★★★★</div><div class="rev-text">"Outstanding logo design for our tech startup. Albin delivered multiple concepts and was incredibly patient with our feedback. 100% recommend."</div><div class="rev-author"><div class="rev-avatar">KC</div><div><div class="rev-name">Kevin Chen</div><div class="rev-loc">Singapore</div></div><div class="rev-badge">Logo</div></div></div>
+      <div class="rev-card"><div class="rev-stars">★★★★★</div><div class="rev-text">"Albin made our Fiverr product thumbnail and it immediately increased our click-through rate. He knows exactly what works visually."</div><div class="rev-author"><div class="rev-avatar">MR</div><div><div class="rev-name">Mohammed Rashid</div><div class="rev-loc">Malappuram, Kerala</div></div><div class="rev-badge">Thumbnail</div></div></div>
+      <div class="rev-card"><div class="rev-stars">★★★★★</div><div class="rev-text">"I've hired dozens of designers on Fiverr. Albin is top 3 easily. Fast communication, creative ideas, and the final result always exceeds expectations."</div><div class="rev-author"><div class="rev-avatar">LB</div><div><div class="rev-name">Lena Bauer</div><div class="rev-loc">Berlin, Germany</div></div><div class="rev-badge">Branding</div></div></div>
+    </div>
+
+    <!-- Row 3 -->
+    <div class="rev-track r3">
+      <div class="rev-card"><div class="rev-stars">★★★★★</div><div class="rev-text">"Needed a short film title card and motion intro within 12 hours. Albin delivered a cinema-quality result. Absolute professional."</div><div class="rev-author"><div class="rev-avatar">VS</div><div><div class="rev-name">Vineeth Sreenivasan</div><div class="rev-loc">Ernakulam, Kerala</div></div><div class="rev-badge">Motion</div></div></div>
+      <div class="rev-card"><div class="rev-stars">★★★★★</div><div class="rev-text">"Albin redesigned all our e-commerce product images and banners. Sales went up 30% the following month. Worth every rupee."</div><div class="rev-author"><div class="rev-avatar">TW</div><div><div class="rev-name">Tom Williams</div><div class="rev-loc">Melbourne, Australia</div></div><div class="rev-badge">E-commerce</div></div></div>
+      <div class="rev-card"><div class="rev-stars">★★★★★</div><div class="rev-text">"Our gym's rebranding project was handled flawlessly. Logo, flex boards, and digital assets all look world-class. Getting so many compliments."</div><div class="rev-author"><div class="rev-avatar">BJ</div><div><div class="rev-name">Bibin Jose</div><div class="rev-loc">Kottayam, Kerala</div></div><div class="rev-badge">Branding</div></div></div>
+      <div class="rev-card"><div class="rev-stars">★★★★★</div><div class="rev-text">"Hired Albin for a YouTube channel intro animation. The result was sleek, modern, and exactly what I envisioned. My subscribers noticed immediately."</div><div class="rev-author"><div class="rev-avatar">CR</div><div><div class="rev-name">Carlos Rivera</div><div class="rev-loc">Mexico City, Mexico</div></div><div class="rev-badge">Motion</div></div></div>
+      <div class="rev-card"><div class="rev-stars">★★★★★</div><div class="rev-text">"Albin created a complete wedding invitation set — digital and print — for our daughter's wedding. It was absolutely gorgeous, very Kerala and elegant."</div><div class="rev-author"><div class="rev-avatar">LM</div><div><div class="rev-name">Leela Menon</div><div class="rev-loc">Palakkad, Kerala</div></div><div class="rev-badge">Print</div></div></div>
+      <div class="rev-card"><div class="rev-stars">★★★★★</div><div class="rev-text">"Fast, creative, professional. Albin delivered a complete social media kit for our fashion brand in 2 days. Every post looks like it came from a big agency."</div><div class="rev-author"><div class="rev-avatar">ZA</div><div><div class="rev-name">Zara Ahmed</div><div class="rev-loc">Karachi, Pakistan</div></div><div class="rev-badge">Social Media</div></div></div>
+      <!-- duplicate -->
+      <div class="rev-card"><div class="rev-stars">★★★★★</div><div class="rev-text">"Needed a short film title card and motion intro within 12 hours. Albin delivered a cinema-quality result. Absolute professional."</div><div class="rev-author"><div class="rev-avatar">VS</div><div><div class="rev-name">Vineeth Sreenivasan</div><div class="rev-loc">Ernakulam, Kerala</div></div><div class="rev-badge">Motion</div></div></div>
+      <div class="rev-card"><div class="rev-stars">★★★★★</div><div class="rev-text">"Albin redesigned all our e-commerce product images and banners. Sales went up 30% the following month. Worth every rupee."</div><div class="rev-author"><div class="rev-avatar">TW</div><div><div class="rev-name">Tom Williams</div><div class="rev-loc">Melbourne, Australia</div></div><div class="rev-badge">E-commerce</div></div></div>
+      <div class="rev-card"><div class="rev-stars">★★★★★</div><div class="rev-text">"Our gym's rebranding project was handled flawlessly. Logo, flex boards, and digital assets all look world-class. Getting so many compliments."</div><div class="rev-author"><div class="rev-avatar">BJ</div><div><div class="rev-name">Bibin Jose</div><div class="rev-loc">Kottayam, Kerala</div></div><div class="rev-badge">Branding</div></div></div>
+      <div class="rev-card"><div class="rev-stars">★★★★★</div><div class="rev-text">"Hired Albin for a YouTube channel intro animation. The result was sleek, modern, and exactly what I envisioned. My subscribers noticed immediately."</div><div class="rev-author"><div class="rev-avatar">CR</div><div><div class="rev-name">Carlos Rivera</div><div class="rev-loc">Mexico City, Mexico</div></div><div class="rev-badge">Motion</div></div></div>
+      <div class="rev-card"><div class="rev-stars">★★★★★</div><div class="rev-text">"Albin created a complete wedding invitation set — digital and print — for our daughter's wedding. It was absolutely gorgeous, very Kerala and elegant."</div><div class="rev-author"><div class="rev-avatar">LM</div><div><div class="rev-name">Leela Menon</div><div class="rev-loc">Palakkad, Kerala</div></div><div class="rev-badge">Print</div></div></div>
+      <div class="rev-card"><div class="rev-stars">★★★★★</div><div class="rev-text">"Fast, creative, professional. Albin delivered a complete social media kit for our fashion brand in 2 days. Every post looks like it came from a big agency."</div><div class="rev-author"><div class="rev-avatar">ZA</div><div><div class="rev-name">Zara Ahmed</div><div class="rev-loc">Karachi, Pakistan</div></div><div class="rev-badge">Social Media</div></div></div>
+    </div>
+
+  </div>
+</section>
+
 <!-- CONTACT -->
 <section class="contact-sec" id="contact">
   <canvas id="contact-cv"></canvas>
@@ -845,38 +954,55 @@ footer span{font-size:11px;font-weight:400;color:rgba(255,255,255,.28)}
 
 <script>
 'use strict';
-/* ═══════════════════════════════════
-   PERFORMANCE: detect low-end devices
-═══════════════════════════════════ */
-const isLowEnd = navigator.hardwareConcurrency <= 4 || /Android|iPhone|iPad/.test(navigator.userAgent);
 
 /* ═══════════════════════════════════
-   CURSOR — rAF loop, no CSS transition on dot
+   DEVICE DETECTION
 ═══════════════════════════════════ */
-const cdot = document.getElementById('cdot');
-const cring = document.getElementById('cring');
-let mx = -100, my = -100, rx = -100, ry = -100;
-document.addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; }, { passive: true });
-(function curLoop() {
-  cdot.style.transform = `translate(${mx}px,${my}px)`;
-  rx += (mx - rx) * .14; ry += (my - ry) * .14;
-  cring.style.transform = `translate(${rx}px,${ry}px)`;
-  requestAnimationFrame(curLoop);
-})();
-document.querySelectorAll('a,button,.svc-card,.mq-w,.tool,.stat-card,.feat-card').forEach(el => {
-  el.addEventListener('mouseenter', () => document.body.classList.add('ch'), { passive: true });
-  el.addEventListener('mouseleave', () => document.body.classList.remove('ch'), { passive: true });
-});
+const isMobile = /Android|iPhone|iPad|iPod/.test(navigator.userAgent);
+const isLowEnd = navigator.hardwareConcurrency <= 4 || isMobile;
+// Use touch input for mobile 3D interaction
+let touchX = 0, touchY = 0;
+
+/* ═══════════════════════════════════
+   CURSOR — desktop only
+═══════════════════════════════════ */
+if (!isMobile) {
+  const cdot = document.getElementById('cdot');
+  const cring = document.getElementById('cring');
+  let mx = -100, my = -100, rx = -100, ry = -100;
+  document.addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; }, { passive: true });
+  (function curLoop() {
+    cdot.style.transform = `translate(${mx}px,${my}px)`;
+    rx += (mx - rx) * .14; ry += (my - ry) * .14;
+    cring.style.transform = `translate(${rx}px,${ry}px)`;
+    requestAnimationFrame(curLoop);
+  })();
+  document.querySelectorAll('a,button,.svc-card,.mq-w,.tool,.stat-card,.feat-card').forEach(el => {
+    el.addEventListener('mouseenter', () => document.body.classList.add('ch'), { passive: true });
+    el.addEventListener('mouseleave', () => document.body.classList.remove('ch'), { passive: true });
+  });
+} else {
+  // hide cursor elements on mobile
+  document.getElementById('cdot').style.display = 'none';
+  document.getElementById('cring').style.display = 'none';
+  document.body.style.cursor = 'auto';
+}
+
+/* ═══════════════════════════════════
+   GLOBAL TOUCH — drives 3D on mobile
+═══════════════════════════════════ */
+document.addEventListener('touchmove', e => {
+  const t = e.touches[0];
+  touchX = (t.clientX / window.innerWidth - 0.5) * 2;
+  touchY = -(t.clientY / window.innerHeight - 0.5) * 2;
+}, { passive: true });
 
 /* ═══════════════════════════════════
    NAV
 ═══════════════════════════════════ */
 const nav = document.getElementById('nav');
-let lastScroll = 0;
 window.addEventListener('scroll', () => {
-  const y = window.scrollY;
-  nav.classList.toggle('on', y > 20);
-  lastScroll = y;
+  nav.classList.toggle('on', window.scrollY > 20);
 }, { passive: true });
 
 /* ═══════════════════════════════════
@@ -891,11 +1017,11 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
 });
 
 /* ═══════════════════════════════════
-   REVEAL — IntersectionObserver
+   REVEAL
 ═══════════════════════════════════ */
 const rObs = new IntersectionObserver(entries => {
   entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); rObs.unobserve(e.target); } });
-}, { threshold: .1, rootMargin: '0px 0px -40px 0px' });
+}, { threshold: .08, rootMargin: '0px 0px -32px 0px' });
 document.querySelectorAll('[data-r],[data-sg]').forEach(el => rObs.observe(el));
 
 /* ═══════════════════════════════════
@@ -907,7 +1033,7 @@ const bObs = new IntersectionObserver(entries => {
     e.target.querySelectorAll('.svc-fill').forEach(b => setTimeout(() => b.style.width = b.dataset.w + '%', 150));
     bObs.unobserve(e.target);
   });
-}, { threshold: .15 });
+}, { threshold: .1 });
 const sg = document.getElementById('svc-grid');
 if (sg) bObs.observe(sg);
 
@@ -943,161 +1069,166 @@ function toggleExp(btn) {
 }
 
 /* ═══════════════════════════════════
-   GLASS CARD 3D TILT — throttled
+   GLASS CARD TILT — desktop only
 ═══════════════════════════════════ */
-let tiltFrame = null;
-document.querySelectorAll('.stat-card,.feat-card').forEach(card => {
-  card.addEventListener('mousemove', e => {
-    if (tiltFrame) return;
-    tiltFrame = requestAnimationFrame(() => {
-      const r = card.getBoundingClientRect();
-      const x = (e.clientX - r.left) / r.width - .5;
-      const y = (e.clientY - r.top) / r.height - .5;
-      card.style.transform = `perspective(500px) rotateX(${-y * 8}deg) rotateY(${x * 8}deg) translateY(-3px)`;
-      tiltFrame = null;
+if (!isMobile) {
+  let tiltFrame = null;
+  document.querySelectorAll('.stat-card,.feat-card').forEach(card => {
+    card.addEventListener('mousemove', e => {
+      if (tiltFrame) return;
+      tiltFrame = requestAnimationFrame(() => {
+        const r = card.getBoundingClientRect();
+        const x = (e.clientX - r.left) / r.width - .5;
+        const y = (e.clientY - r.top) / r.height - .5;
+        card.style.transform = `perspective(500px) rotateX(${-y * 8}deg) rotateY(${x * 8}deg) translateY(-3px)`;
+        tiltFrame = null;
+      });
+    }, { passive: true });
+    card.addEventListener('mouseleave', () => {
+      card.style.transform = '';
+      card.style.transition = 'transform .5s cubic-bezier(.23,1,.32,1),box-shadow .3s';
+      setTimeout(() => card.style.transition = '', 500);
     });
-  }, { passive: true });
-  card.addEventListener('mouseleave', () => {
-    card.style.transform = '';
-    card.style.transition = 'transform .5s cubic-bezier(.23,1,.32,1),box-shadow .3s';
-    setTimeout(() => card.style.transition = '', 500);
   });
-});
+}
 
 /* ═══════════════════════════════════
-   THREE.JS ① — HERO
-   Optimised: fewer particles, no custom shader,
-   PointsMaterial only, pauses when offscreen
+   THREE.JS HELPER — shared resize+visibility
 ═══════════════════════════════════ */
-(function () {
-  const canvas = document.getElementById('hero-cv');
-  const hero = canvas.parentElement;
-  let W = hero.offsetWidth, H = hero.offsetHeight;
-
-  const renderer = new THREE.WebGLRenderer({ canvas, alpha: true, antialias: false, powerPreference: 'low-power' });
-  renderer.setPixelRatio(Math.min(devicePixelRatio, isLowEnd ? 1 : 1.5));
+function makeScene(canvasId, bgColor, alpha) {
+  const canvas = document.getElementById(canvasId);
+  if (!canvas) return null;
+  const wrap = canvas.parentElement;
+  let W = wrap.offsetWidth || window.innerWidth;
+  let H = wrap.offsetHeight || window.innerHeight;
+  const renderer = new THREE.WebGLRenderer({
+    canvas, alpha, antialias: false, powerPreference: 'low-power'
+  });
+  renderer.setPixelRatio(isMobile ? Math.min(devicePixelRatio, 2) : Math.min(devicePixelRatio, 1.5));
   renderer.setSize(W, H);
-  renderer.setClearColor(0, 0);
-
+  if (!alpha) renderer.setClearColor(bgColor, 1);
+  else renderer.setClearColor(0, 0);
   const scene = new THREE.Scene();
-  const cam = new THREE.PerspectiveCamera(55, W / H, .1, 400);
-  cam.position.z = 75;
-
-  /* Particles — simple PointsMaterial, no shader */
-  const N = isLowEnd ? 600 : 1200;
-  const pos = new Float32Array(N * 3);
-  for (let i = 0; i < N; i++) {
-    pos[i * 3] = (Math.random() - .5) * 240;
-    pos[i * 3 + 1] = (Math.random() - .5) * 180;
-    pos[i * 3 + 2] = (Math.random() - .5) * 120;
-  }
-  const geo = new THREE.BufferGeometry();
-  geo.setAttribute('position', new THREE.BufferAttribute(pos, 3));
-  const mat = new THREE.PointsMaterial({ color: 0xaaaaaa, size: .8, transparent: true, opacity: .55, sizeAttenuation: true });
-  const pts = new THREE.Points(geo, mat);
-  scene.add(pts);
-
-  /* One thin torus ring */
-  const ring = new THREE.Mesh(
-    new THREE.TorusGeometry(28, .06, 6, 80),
-    new THREE.MeshBasicMaterial({ color: 0xbbbbbb, transparent: true, opacity: .07 })
-  );
-  ring.rotation.x = .6;
-  scene.add(ring);
-
-  /* Wireframe ico — faint */
-  const ico = new THREE.Mesh(
-    new THREE.IcosahedronGeometry(18, 1),
-    new THREE.MeshBasicMaterial({ color: 0xcccccc, wireframe: true, transparent: true, opacity: .05 })
-  );
-  ico.position.set(48, 8, -28);
-  scene.add(ico);
-
-  /* Throttled mouse */
-  let pmx = 0, pmy = 0, mFrame = false;
-  document.addEventListener('mousemove', e => {
-    if (mFrame) return; mFrame = true;
-    requestAnimationFrame(() => {
-      pmx = (e.clientX / innerWidth - .5) * 2;
-      pmy = -(e.clientY / innerHeight - .5) * 2;
-      mFrame = false;
-    });
-  }, { passive: true });
-
-  /* Resize — debounced */
-  let rsTimer;
+  if (!alpha) scene.background = new THREE.Color(bgColor);
+  const cam = new THREE.PerspectiveCamera(isMobile ? 65 : 55, W / H, .1, 400);
+  let visible = false;
+  const vObs = new IntersectionObserver(es => { visible = es[0].isIntersecting; }, { threshold: 0 });
+  vObs.observe(wrap);
+  let rsT;
   window.addEventListener('resize', () => {
-    clearTimeout(rsTimer);
-    rsTimer = setTimeout(() => {
-      W = hero.offsetWidth; H = hero.offsetHeight;
+    clearTimeout(rsT);
+    rsT = setTimeout(() => {
+      W = wrap.offsetWidth || window.innerWidth;
+      H = wrap.offsetHeight || 400;
       cam.aspect = W / H; cam.updateProjectionMatrix();
       renderer.setSize(W, H);
     }, 200);
   });
+  return { renderer, scene, cam, wrap, get visible() { return visible; } };
+}
 
-  /* Visibility pause */
-  let visible = true;
-  const vObs = new IntersectionObserver(es => { visible = es[0].isIntersecting; }, { threshold: 0 });
-  vObs.observe(hero);
+/* ═══════════════════════════════════
+   THREE.JS ① — HERO
+   Mobile: bigger particles, touch parallax
+═══════════════════════════════════ */
+(function () {
+  const s = makeScene('hero-cv', 0, true);
+  if (!s) return;
+  const { renderer, scene, cam } = s;
+  cam.position.z = isMobile ? 60 : 75;
+
+  const N = isMobile ? 800 : 1200;
+  const pos = new Float32Array(N * 3);
+  for (let i = 0; i < N; i++) {
+    pos[i * 3] = (Math.random() - .5) * (isMobile ? 180 : 240);
+    pos[i * 3 + 1] = (Math.random() - .5) * (isMobile ? 280 : 180);
+    pos[i * 3 + 2] = (Math.random() - .5) * 120;
+  }
+  const geo = new THREE.BufferGeometry();
+  geo.setAttribute('position', new THREE.BufferAttribute(pos, 3));
+  // Bigger particles on mobile so they're visible
+  const mat = new THREE.PointsMaterial({
+    color: 0xaaaaaa,
+    size: isMobile ? 1.6 : .8,
+    transparent: true, opacity: isMobile ? .7 : .55,
+    sizeAttenuation: true
+  });
+  const pts = new THREE.Points(geo, mat);
+  scene.add(pts);
+
+  // Torus ring — visible on mobile too
+  const ring = new THREE.Mesh(
+    new THREE.TorusGeometry(isMobile ? 22 : 28, .08, 6, 80),
+    new THREE.MeshBasicMaterial({ color: 0xbbbbbb, transparent: true, opacity: isMobile ? .12 : .07 })
+  );
+  ring.rotation.x = .6;
+  scene.add(ring);
+
+  // Wireframe ico
+  const ico = new THREE.Mesh(
+    new THREE.IcosahedronGeometry(isMobile ? 14 : 18, 1),
+    new THREE.MeshBasicMaterial({ color: 0xcccccc, wireframe: true, transparent: true, opacity: isMobile ? .1 : .05 })
+  );
+  ico.position.set(isMobile ? 25 : 48, 8, -28);
+  scene.add(ico);
+
+  let pmx = 0, pmy = 0, mF = false;
+  // Desktop mouse
+  document.addEventListener('mousemove', e => {
+    if (mF) return; mF = true;
+    requestAnimationFrame(() => {
+      pmx = (e.clientX / innerWidth - .5) * 2;
+      pmy = -(e.clientY / innerHeight - .5) * 2;
+      mF = false;
+    });
+  }, { passive: true });
 
   let t = 0, lastT = 0;
-  function heroLoop(ts) {
-    requestAnimationFrame(heroLoop);
-    if (!visible) return;
-    /* cap delta to avoid spiral on tab refocus */
+  function loop(ts) {
+    requestAnimationFrame(loop);
+    if (!s.visible) return;
     const dt = Math.min(ts - lastT, 50); lastT = ts;
     t += dt * .00045;
-
-    pts.rotation.y = t * .06 + pmx * .04;
-    pts.rotation.x = t * .025 + pmy * .025;
+    // Use touch input on mobile
+    const cx = isMobile ? touchX : pmx;
+    const cy = isMobile ? touchY : pmy;
+    pts.rotation.y = t * .06 + cx * .04;
+    pts.rotation.x = t * .025 + cy * .025;
     ring.rotation.z = t * .08;
     ico.rotation.y = t * .12; ico.rotation.x = t * .07;
     renderer.render(scene, cam);
   }
-  requestAnimationFrame(heroLoop);
+  requestAnimationFrame(loop);
 })();
 
 /* ═══════════════════════════════════
    THREE.JS ② — SHOWCASE
-   Crystal icosphere + orbiting spheres
-   Proper resize + visibility pause
+   Mobile: touch rotates the crystal!
 ═══════════════════════════════════ */
 (function () {
-  const canvas = document.getElementById('scene-cv');
-  const wrap = canvas.parentElement;
-  let W = wrap.offsetWidth, H = Math.max(wrap.offsetHeight, 340);
+  const s = makeScene('scene-cv', 0xefeff4, false);
+  if (!s) return;
+  const { renderer, scene, cam, wrap } = s;
+  cam.position.z = isMobile ? 46 : 52;
 
-  const renderer = new THREE.WebGLRenderer({ canvas, alpha: false, antialias: !isLowEnd, powerPreference: 'low-power' });
-  renderer.setPixelRatio(Math.min(devicePixelRatio, isLowEnd ? 1 : 1.5));
-  renderer.setSize(W, H);
-  renderer.setClearColor(0xefeff4, 1);
-
-  const scene = new THREE.Scene();
-  scene.background = new THREE.Color(0xefeff4);
-  const cam = new THREE.PerspectiveCamera(48, W / H, .1, 300);
-  cam.position.z = 52;
-
-  /* Lights */
   scene.add(new THREE.AmbientLight(0xffffff, .6));
   const dl = new THREE.DirectionalLight(0xffffff, .7);
-  dl.position.set(15, 25, 15);
-  scene.add(dl);
+  dl.position.set(15, 25, 15); scene.add(dl);
 
-  /* Core crystal */
+  // Crystal core
   const core = new THREE.Mesh(
-    new THREE.IcosahedronGeometry(9, 1),
+    new THREE.IcosahedronGeometry(isMobile ? 11 : 9, 1),
     new THREE.MeshPhongMaterial({ color: 0xffffff, transparent: true, opacity: .2, shininess: 180, side: THREE.DoubleSide })
   );
   scene.add(core);
 
-  /* Wireframe overlay */
   const wire = new THREE.Mesh(
-    new THREE.IcosahedronGeometry(9.2, 1),
+    new THREE.IcosahedronGeometry(isMobile ? 11.3 : 9.2, 1),
     new THREE.MeshBasicMaterial({ color: 0x888888, wireframe: true, transparent: true, opacity: .38 })
   );
   scene.add(wire);
 
-  /* 3 orbital rings — reduced from 4 */
+  // Orbital rings
   const rings = [];
   [[16, .05, 0, 0, 0], [18, .04, Math.PI / 2, 0, .28], [20, .035, .9, .4, 0]].forEach(([r, t, rx, ry, rz]) => {
     const mesh = new THREE.Mesh(
@@ -1108,7 +1239,7 @@ document.querySelectorAll('.stat-card,.feat-card').forEach(card => {
     scene.add(mesh); rings.push(mesh);
   });
 
-  /* 3 orbiting spheres — reduced from 4 */
+  // Orbiting spheres
   const orbs = [0, Math.PI * .667, Math.PI * 1.333].map((a, i) => {
     const mesh = new THREE.Mesh(
       new THREE.SphereGeometry(.55, 10, 10),
@@ -1118,8 +1249,8 @@ document.querySelectorAll('.stat-card,.feat-card').forEach(card => {
     return { mesh, angle: a, r: 17 + i * 1.5, spd: .35 + i * .12, yOff: (i - 1) * 2.5 };
   });
 
-  /* Shell particles — fewer */
-  const pN = isLowEnd ? 200 : 450;
+  // Particles
+  const pN = isMobile ? 300 : 450;
   const pP = new Float32Array(pN * 3);
   for (let i = 0; i < pN; i++) {
     const th = Math.random() * Math.PI * 2, ph = Math.acos(2 * Math.random() - 1);
@@ -1130,42 +1261,36 @@ document.querySelectorAll('.stat-card,.feat-card').forEach(card => {
   }
   const pGeo = new THREE.BufferGeometry();
   pGeo.setAttribute('position', new THREE.BufferAttribute(pP, 3));
-  scene.add(new THREE.Points(pGeo, new THREE.PointsMaterial({ color: 0x999999, size: .2, transparent: true, opacity: .5 })));
+  scene.add(new THREE.Points(pGeo, new THREE.PointsMaterial({
+    color: 0x999999, size: isMobile ? .35 : .2, transparent: true, opacity: .5
+  })));
 
+  // Mouse input (desktop)
   let smx = 0, smy = 0, smF = false;
-  canvas.addEventListener('mousemove', e => {
-    if (smF) return; smF = true;
-    requestAnimationFrame(() => {
-      const r = canvas.getBoundingClientRect();
-      smx = (e.clientX - r.left) / r.width * 2 - 1;
-      smy = -((e.clientY - r.top) / r.height * 2 - 1);
-      smF = false;
-    });
-  }, { passive: true });
-
-  let rsT2;
-  window.addEventListener('resize', () => {
-    clearTimeout(rsT2);
-    rsT2 = setTimeout(() => {
-      W = wrap.offsetWidth; H = Math.max(wrap.offsetHeight, 340);
-      cam.aspect = W / H; cam.updateProjectionMatrix();
-      renderer.setSize(W, H);
-    }, 200);
-  });
-
-  let visible2 = false;
-  const vObs2 = new IntersectionObserver(es => { visible2 = es[0].isIntersecting; }, { threshold: 0 });
-  vObs2.observe(wrap);
+  const canvas = document.getElementById('scene-cv');
+  if (canvas) {
+    canvas.addEventListener('mousemove', e => {
+      if (smF) return; smF = true;
+      requestAnimationFrame(() => {
+        const r = canvas.getBoundingClientRect();
+        smx = (e.clientX - r.left) / r.width * 2 - 1;
+        smy = -((e.clientY - r.top) / r.height * 2 - 1);
+        smF = false;
+      });
+    }, { passive: true });
+  }
 
   let t2 = 0, lastT2 = 0;
-  function sceneLoop(ts) {
-    requestAnimationFrame(sceneLoop);
-    if (!visible2) return;
+  function loop(ts) {
+    requestAnimationFrame(loop);
+    if (!s.visible) return;
     const dt = Math.min(ts - lastT2, 50); lastT2 = ts;
     t2 += dt * .0005;
-
-    core.rotation.x = t2 * .22 + smy * .16;
-    core.rotation.y = t2 * .3 + smx * .2;
+    // On mobile use global touch for rotation — feels interactive!
+    const cx = isMobile ? touchX : smx;
+    const cy = isMobile ? touchY : smy;
+    core.rotation.x = t2 * .22 + cy * .22;
+    core.rotation.y = t2 * .3 + cx * .28;
     wire.rotation.x = core.rotation.x;
     wire.rotation.y = core.rotation.y;
     rings.forEach((rg, i) => { rg.rotation.z = t2 * (.1 + i * .04); });
@@ -1177,28 +1302,20 @@ document.querySelectorAll('.stat-card,.feat-card').forEach(card => {
     });
     renderer.render(scene, cam);
   }
-  requestAnimationFrame(sceneLoop);
+  requestAnimationFrame(loop);
 })();
 
 /* ═══════════════════════════════════
    THREE.JS ③ — CONTACT
-   Very lightweight — just particles + 1 ring
+   Lightweight bg
 ═══════════════════════════════════ */
 (function () {
-  const canvas = document.getElementById('contact-cv');
-  const wrap = canvas.parentElement;
-  let W = wrap.offsetWidth, H = wrap.offsetHeight || 500;
-
-  const renderer = new THREE.WebGLRenderer({ canvas, alpha: true, antialias: false, powerPreference: 'low-power' });
-  renderer.setPixelRatio(1); // always 1x for contact bg
-  renderer.setSize(W, H);
-  renderer.setClearColor(0, 0);
-
-  const scene = new THREE.Scene();
-  const cam = new THREE.PerspectiveCamera(55, W / H, .1, 300);
+  const s = makeScene('contact-cv', 0, true);
+  if (!s) return;
+  const { renderer, scene, cam } = s;
   cam.position.z = 65;
 
-  const N = isLowEnd ? 300 : 700;
+  const N = isMobile ? 400 : 700;
   const pos = new Float32Array(N * 3);
   for (let i = 0; i < N; i++) {
     pos[i * 3] = (Math.random() - .5) * 200;
@@ -1207,7 +1324,9 @@ document.querySelectorAll('.stat-card,.feat-card').forEach(card => {
   }
   const geo = new THREE.BufferGeometry();
   geo.setAttribute('position', new THREE.BufferAttribute(pos, 3));
-  const pts = new THREE.Points(geo, new THREE.PointsMaterial({ color: 0xffffff, size: .4, transparent: true, opacity: .2 }));
+  const pts = new THREE.Points(geo, new THREE.PointsMaterial({
+    color: 0xffffff, size: isMobile ? .6 : .4, transparent: true, opacity: .2
+  }));
   scene.add(pts);
 
   const ring = new THREE.Mesh(
@@ -1217,31 +1336,17 @@ document.querySelectorAll('.stat-card,.feat-card').forEach(card => {
   ring.rotation.x = .9;
   scene.add(ring);
 
-  let rsT3;
-  window.addEventListener('resize', () => {
-    clearTimeout(rsT3);
-    rsT3 = setTimeout(() => {
-      W = wrap.offsetWidth; H = wrap.offsetHeight || 500;
-      cam.aspect = W / H; cam.updateProjectionMatrix();
-      renderer.setSize(W, H);
-    }, 200);
-  });
-
-  let visible3 = false;
-  const vObs3 = new IntersectionObserver(es => { visible3 = es[0].isIntersecting; }, { threshold: 0 });
-  vObs3.observe(wrap);
-
   let t3 = 0, lastT3 = 0;
-  function contactLoop(ts) {
-    requestAnimationFrame(contactLoop);
-    if (!visible3) return;
+  function loop(ts) {
+    requestAnimationFrame(loop);
+    if (!s.visible) return;
     const dt = Math.min(ts - lastT3, 50); lastT3 = ts;
     t3 += dt * .0004;
     pts.rotation.y = t3 * .06; pts.rotation.x = t3 * .025;
     ring.rotation.z = t3 * .07;
     renderer.render(scene, cam);
   }
-  requestAnimationFrame(contactLoop);
+  requestAnimationFrame(loop);
 })();
 </script>
 </body>
