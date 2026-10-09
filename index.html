@@ -809,6 +809,86 @@ nav.on{
 .exp-card.op .exp-body{max-height:160px;padding-bottom:24px}
 .exp-body p{font-size:14px;font-weight:300;line-height:1.75;color:var(--gray2)}
 
+/* ── AI TOOLS ────────────────────────────────── */
+.ai-sec{background:var(--bg);position:relative;overflow:hidden}
+.ai-sec::before,.ai-sec::after{content:'';position:absolute;border-radius:50%;pointer-events:none;filter:blur(80px);z-index:0}
+.ai-sec::before{width:420px;height:420px;background:rgba(120,100,255,.10);top:-120px;right:-100px;animation:bd 18s ease-in-out infinite}
+.ai-sec::after{width:380px;height:380px;background:rgba(0,170,255,.08);bottom:-100px;left:-100px;animation:bd 22s ease-in-out infinite reverse}
+.ai-sec .cnt,.ai-sec .ai-mq{position:relative;z-index:1}
+.ai-sub{font-size:16px;font-weight:300;line-height:1.7;color:var(--gray2);max-width:520px;margin-top:16px}
+.ai-mq{overflow:hidden;margin-top:48px;-webkit-mask-image:linear-gradient(90deg,transparent,#000 12%,#000 88%,transparent);mask-image:linear-gradient(90deg,transparent,#000 12%,#000 88%,transparent)}
+.ai-mq-track{display:flex;gap:14px;width:max-content;animation:mq 30s linear infinite}
+@media(hover:hover){.ai-mq-track:hover{animation-play-state:paused}}
+.ai-chip{display:flex;align-items:center;gap:10px;padding:10px 18px 10px 12px;border-radius:var(--pill);background:var(--lg-bg-pill);border-top:1px solid rgba(255,255,255,.9);border-left:.5px solid rgba(255,255,255,.5);border-right:.5px solid rgba(255,255,255,.2);border-bottom:.5px solid rgba(0,0,0,.05);backdrop-filter:var(--lg-blur-sm);-webkit-backdrop-filter:var(--lg-blur-sm);box-shadow:var(--lg-shadow);font-size:13px;font-weight:500;color:var(--gray1);white-space:nowrap}
+.ai-chip .ai-logo{width:26px;height:26px;border-radius:8px}
+.ai-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:44px}
+.ai-card{perspective:800px}
+.ai-card-in{position:relative;overflow:hidden;height:100%;padding:24px 20px 22px;border-radius:var(--r);background:var(--lg-bg);border-top:1px solid rgba(255,255,255,.9);border-left:.5px solid rgba(255,255,255,.5);border-right:.5px solid rgba(255,255,255,.2);border-bottom:.5px solid rgba(0,0,0,.05);backdrop-filter:var(--lg-blur-deep);-webkit-backdrop-filter:var(--lg-blur-deep);box-shadow:var(--lg-shadow);animation:aifloat 7s ease-in-out infinite;transition:box-shadow .35s,transform .35s cubic-bezier(.23,1,.32,1)}
+.ai-card:nth-child(2n) .ai-card-in{animation-duration:8.5s;animation-delay:-2s}
+.ai-card:nth-child(3n) .ai-card-in{animation-duration:9.5s;animation-delay:-4s}
+.ai-card:nth-child(5n) .ai-card-in{animation-duration:6.5s;animation-delay:-1s}
+@keyframes aifloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-7px)}}
+.ai-card-in::after{content:'';position:absolute;top:0;left:0;right:0;height:50%;background:linear-gradient(to bottom,rgba(255,255,255,.5),rgba(255,255,255,0));pointer-events:none}
+.ai-card-in::before{content:'';position:absolute;top:0;left:-80%;width:50%;height:100%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.65),transparent);transform:skewX(-18deg);transition:left .8s cubic-bezier(.23,1,.32,1);pointer-events:none;z-index:2}
+.ai-card:hover .ai-card-in{box-shadow:var(--lg-shadow-hover);animation-play-state:paused;transform:translateY(-8px) scale(1.03)}
+.ai-card:hover .ai-card-in::before{left:140%}
+.ai-logo-wrap{position:relative;width:52px;height:52px;margin-bottom:16px;z-index:1}
+.ai-logo-wrap::before{content:'';position:absolute;inset:-6px;border-radius:18px;border:1.5px solid rgba(0,0,0,.12);animation:aipulse 3s ease-out infinite}
+@keyframes aipulse{0%{transform:scale(.85);opacity:.9}100%{transform:scale(1.35);opacity:0}}
+.ai-logo{display:flex;align-items:center;justify-content:center;width:52px;height:52px;border-radius:14px;object-fit:contain;background:#fff;padding:8px;box-shadow:0 4px 14px rgba(0,0,0,.10),inset 0 0 0 .5px rgba(0,0,0,.06)}
+.ai-chip .ai-logo{padding:4px;box-shadow:none}
+.ai-mono{color:#fff;font-weight:700;font-size:18px;padding:0}
+.ai-name{position:relative;z-index:1;font-size:16px;font-weight:600;letter-spacing:-.3px;color:var(--black)}
+.ai-cat{position:relative;z-index:1;font-size:10px;font-weight:500;letter-spacing:1.5px;text-transform:uppercase;color:var(--gray3);margin:4px 0 10px}
+.ai-desc{position:relative;z-index:1;font-size:12px;font-weight:300;line-height:1.6;color:var(--gray2)}
+@media(max-width:980px){.ai-grid{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:700px){.ai-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:420px){.ai-grid{grid-template-columns:1fr}}
+@media(prefers-reduced-motion:reduce){.ai-card-in,.ai-logo-wrap::before,.ai-mq-track{animation:none}}
+
+.ai-logo.ai-app{padding:0;background:transparent;border-radius:14px;object-fit:cover}
+.ai-chip .ai-logo.ai-app{padding:0;border-radius:8px}
+/* AI section: extra smooth motion */
+@property --ai-ang{syntax:'<angle>';inherits:false;initial-value:0deg}
+.ai-shimmer{background:linear-gradient(100deg,var(--black) 0%,var(--black) 35%,#7a6bff 48%,#00a6ff 52%,var(--black) 65%,var(--black) 100%);background-size:250% 100%;-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent;animation:aishimmer 5s ease-in-out infinite}
+@keyframes aishimmer{0%{background-position:120% 0}60%,100%{background-position:-60% 0}}
+.ai-sec .lbl{position:relative;padding-left:16px}
+.ai-sec .lbl::before{content:'';position:absolute;left:0;top:50%;width:7px;height:7px;margin-top:-4px;border-radius:50%;background:#34c759;animation:ailive 2s ease-out infinite}
+@keyframes ailive{0%{box-shadow:0 0 0 0 rgba(52,199,89,.55)}100%{box-shadow:0 0 0 10px rgba(52,199,89,0)}}
+/* blur + scale entrance, 12-step stagger */
+.ai-grid[data-sg]>.ai-card{opacity:0;transform:translateY(46px) scale(.92);filter:blur(10px);transition:opacity .8s cubic-bezier(.16,1,.3,1),transform .9s cubic-bezier(.16,1,.3,1),filter .8s cubic-bezier(.16,1,.3,1)}
+.ai-grid[data-sg].in>.ai-card{opacity:1;transform:none;filter:blur(0)}
+.ai-grid[data-sg].in>.ai-card:nth-child(1){transition-delay:.00s}.ai-grid[data-sg].in>.ai-card:nth-child(2){transition-delay:.07s}
+.ai-grid[data-sg].in>.ai-card:nth-child(3){transition-delay:.14s}.ai-grid[data-sg].in>.ai-card:nth-child(4){transition-delay:.21s}
+.ai-grid[data-sg].in>.ai-card:nth-child(5){transition-delay:.28s}.ai-grid[data-sg].in>.ai-card:nth-child(6){transition-delay:.35s}
+.ai-grid[data-sg].in>.ai-card:nth-child(7){transition-delay:.42s}.ai-grid[data-sg].in>.ai-card:nth-child(8){transition-delay:.49s}
+.ai-grid[data-sg].in>.ai-card:nth-child(9){transition-delay:.56s}.ai-grid[data-sg].in>.ai-card:nth-child(10){transition-delay:.63s}
+.ai-grid[data-sg].in>.ai-card:nth-child(11){transition-delay:.70s}.ai-grid[data-sg].in>.ai-card:nth-child(12){transition-delay:.77s}
+/* rotating gradient ring on hover */
+.ai-ring{position:absolute;inset:0;border-radius:inherit;padding:1.5px;pointer-events:none;z-index:3;opacity:0;transition:opacity .45s ease;background:conic-gradient(from var(--ai-ang),transparent 0deg,#7a6bff 70deg,#00a6ff 140deg,#34c759 200deg,transparent 280deg);-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask:linear-gradient(#000 0 0) content-box exclude,linear-gradient(#000 0 0);animation:airing 3.2s linear infinite}
+@keyframes airing{to{--ai-ang:360deg}}
+.ai-card:hover .ai-ring{opacity:1}
+/* logo + text micro-interactions */
+.ai-logo{transition:transform .5s cubic-bezier(.34,1.56,.64,1),box-shadow .4s}
+.ai-card:hover .ai-logo{transform:scale(1.12) rotate(-6deg);box-shadow:0 10px 26px rgba(0,0,0,.16),inset 0 0 0 .5px rgba(0,0,0,.06)}
+.ai-name,.ai-cat{transition:transform .45s cubic-bezier(.23,1,.32,1),color .3s}
+.ai-card:hover .ai-name{transform:translateX(3px)}
+.ai-card:hover .ai-cat{transform:translateX(3px);color:var(--gray2)}
+.ai-desc{transition:color .3s,transform .45s cubic-bezier(.23,1,.32,1)}
+.ai-card:hover .ai-desc{color:var(--gray1);transform:translateX(3px)}
+/* strip chips: gentle bob + hover lift */
+.ai-chip{transition:transform .35s cubic-bezier(.23,1,.32,1),box-shadow .35s;animation:aibob 5s ease-in-out infinite}
+.ai-chip:nth-child(2n){animation-delay:-1.6s}.ai-chip:nth-child(3n){animation-delay:-3.2s}
+@keyframes aibob{0%,100%{translate:0 0}50%{translate:0 -4px}}
+.ai-chip:hover{transform:scale(1.07);box-shadow:var(--lg-shadow-hover)}
+.ai-mq{transition:opacity 1s}
+/* richer background drift */
+.ai-sec::before{animation:aiorb1 20s ease-in-out infinite}
+.ai-sec::after{animation:aiorb2 24s ease-in-out infinite}
+@keyframes aiorb1{0%,100%{transform:translate(0,0) scale(1)}50%{transform:translate(-60px,50px) scale(1.15)}}
+@keyframes aiorb2{0%,100%{transform:translate(0,0) scale(1)}50%{transform:translate(70px,-40px) scale(1.2)}}
+@media(prefers-reduced-motion:reduce){.ai-shimmer,.ai-ring,.ai-chip,.ai-sec::before,.ai-sec::after,.ai-sec .lbl::before{animation:none}.ai-grid[data-sg]>.ai-card{filter:none;transition:opacity .3s}}
+
 /* ── CONTACT ─────────────────────────────────── */
 .contact-sec{background:var(--black);position:relative;overflow:hidden}
 #contact-cv{position:absolute;inset:0;pointer-events:none;z-index:0}
@@ -916,6 +996,7 @@ footer span{font-size:11px;font-weight:400;color:rgba(255,255,255,.28)}
   <ul class="nav-links">
     <li><a href="#about">About</a></li>
     <li><a href="#skills">Skills</a></li>
+    <li><a href="#ai">AI Tools</a></li>
     <li><a href="#work">Work</a></li>
     <li><a href="#reviews">Reviews</a></li>
     <li><a href="#exp">Experience</a></li>
@@ -1059,6 +1140,102 @@ footer span{font-size:11px;font-weight:400;color:rgba(255,255,255,.28)}
       <div class="tool">Adobe After Effects</div>
       <div class="tool">Canva</div>
       <div class="tool">CapCut</div>
+    </div>
+  </div>
+</section>
+
+<div class="div"></div>
+
+<!-- AI TOOLS -->
+<section class="sec ai-sec" id="ai">
+  <div class="cnt">
+    <div class="lbl" data-r="u">AI Tools</div>
+    <h2 class="h2" data-r="u">AI-powered <br/><span class="ai-shimmer">workflow.</span></h2>
+    <p class="ai-sub" data-r="u">The top AI software for video editing, animation and design that I use alongside the Adobe Creative Suite to work faster and push ideas further.</p>
+  </div>
+  <div class="ai-mq" data-r="u"><div class="ai-mq-track"><span class="ai-chip"><img class="ai-logo" src="assets/ai-logos/runway.svg" alt="Runway logo" loading="lazy"/>Runway</span><span class="ai-chip"><img class="ai-logo" src="assets/ai-logos/firefly.svg" alt="Adobe Firefly logo" loading="lazy"/>Adobe Firefly</span><span class="ai-chip"><img class="ai-logo ai-app" src="assets/ai-logos/midjourney.png" alt="Midjourney logo" loading="lazy"/>Midjourney</span><span class="ai-chip"><img class="ai-logo ai-app" src="assets/ai-logos/chatgpt.png" alt="ChatGPT logo" loading="lazy"/>ChatGPT</span><span class="ai-chip"><img class="ai-logo" src="assets/ai-logos/gemini.svg" alt="Google Gemini logo" loading="lazy"/>Google Gemini</span><span class="ai-chip"><img class="ai-logo" src="assets/ai-logos/kling.svg" alt="Kling AI logo" loading="lazy"/>Kling AI</span><span class="ai-chip"><img class="ai-logo" src="assets/ai-logos/luma.svg" alt="Luma Dream Machine logo" loading="lazy"/>Luma Dream Machine</span><span class="ai-chip"><img class="ai-logo" src="assets/ai-logos/pika.svg" alt="Pika logo" loading="lazy"/>Pika</span><span class="ai-chip"><img class="ai-logo" src="assets/ai-logos/ideogram.svg" alt="Ideogram logo" loading="lazy"/>Ideogram</span><span class="ai-chip"><img class="ai-logo" src="assets/ai-logos/elevenlabs.svg" alt="ElevenLabs logo" loading="lazy"/>ElevenLabs</span><span class="ai-chip"><img class="ai-logo" src="assets/ai-logos/sora.svg" alt="Sora logo" loading="lazy"/>Sora</span><span class="ai-chip"><img class="ai-logo" src="assets/ai-logos/capcut.svg" alt="CapCut AI logo" loading="lazy"/>CapCut AI</span><span class="ai-chip"><img class="ai-logo ai-app" src="assets/ai-logos/figma.png" alt="Figma logo" loading="lazy"/>Figma</span><span class="ai-chip"><img class="ai-logo ai-app" src="assets/ai-logos/dalle2.png" alt="DALL·E 2 logo" loading="lazy"/>DALL·E 2</span><span class="ai-chip"><img class="ai-logo ai-app" src="assets/ai-logos/descript.png" alt="Descript logo" loading="lazy"/>Descript</span><span class="ai-chip"><img class="ai-logo ai-app" src="assets/ai-logos/lovable.png" alt="Lovable logo" loading="lazy"/>Lovable</span><span class="ai-chip"><img class="ai-logo" src="assets/ai-logos/runway.svg" alt="Runway logo" loading="lazy"/>Runway</span><span class="ai-chip"><img class="ai-logo" src="assets/ai-logos/firefly.svg" alt="Adobe Firefly logo" loading="lazy"/>Adobe Firefly</span><span class="ai-chip"><img class="ai-logo ai-app" src="assets/ai-logos/midjourney.png" alt="Midjourney logo" loading="lazy"/>Midjourney</span><span class="ai-chip"><img class="ai-logo ai-app" src="assets/ai-logos/chatgpt.png" alt="ChatGPT logo" loading="lazy"/>ChatGPT</span><span class="ai-chip"><img class="ai-logo" src="assets/ai-logos/gemini.svg" alt="Google Gemini logo" loading="lazy"/>Google Gemini</span><span class="ai-chip"><img class="ai-logo" src="assets/ai-logos/kling.svg" alt="Kling AI logo" loading="lazy"/>Kling AI</span><span class="ai-chip"><img class="ai-logo" src="assets/ai-logos/luma.svg" alt="Luma Dream Machine logo" loading="lazy"/>Luma Dream Machine</span><span class="ai-chip"><img class="ai-logo" src="assets/ai-logos/pika.svg" alt="Pika logo" loading="lazy"/>Pika</span><span class="ai-chip"><img class="ai-logo" src="assets/ai-logos/ideogram.svg" alt="Ideogram logo" loading="lazy"/>Ideogram</span><span class="ai-chip"><img class="ai-logo" src="assets/ai-logos/elevenlabs.svg" alt="ElevenLabs logo" loading="lazy"/>ElevenLabs</span><span class="ai-chip"><img class="ai-logo" src="assets/ai-logos/sora.svg" alt="Sora logo" loading="lazy"/>Sora</span><span class="ai-chip"><img class="ai-logo" src="assets/ai-logos/capcut.svg" alt="CapCut AI logo" loading="lazy"/>CapCut AI</span><span class="ai-chip"><img class="ai-logo ai-app" src="assets/ai-logos/figma.png" alt="Figma logo" loading="lazy"/>Figma</span><span class="ai-chip"><img class="ai-logo ai-app" src="assets/ai-logos/dalle2.png" alt="DALL·E 2 logo" loading="lazy"/>DALL·E 2</span><span class="ai-chip"><img class="ai-logo ai-app" src="assets/ai-logos/descript.png" alt="Descript logo" loading="lazy"/>Descript</span><span class="ai-chip"><img class="ai-logo ai-app" src="assets/ai-logos/lovable.png" alt="Lovable logo" loading="lazy"/>Lovable</span></div></div>
+  <div class="cnt">
+    <div class="ai-grid" data-sg>
+      <div class="ai-card"><div class="ai-card-in"><i class="ai-ring"></i>
+        <div class="ai-logo-wrap"><img class="ai-logo" src="assets/ai-logos/runway.svg" alt="Runway logo" loading="lazy"/></div>
+        <div class="ai-name">Runway</div><div class="ai-cat">AI Video</div>
+        <div class="ai-desc">Generative video, motion brush and AI-powered editing.</div>
+      </div></div>
+      <div class="ai-card"><div class="ai-card-in"><i class="ai-ring"></i>
+        <div class="ai-logo-wrap"><img class="ai-logo" src="assets/ai-logos/firefly.svg" alt="Adobe Firefly logo" loading="lazy"/></div>
+        <div class="ai-name">Adobe Firefly</div><div class="ai-cat">AI Image & Design</div>
+        <div class="ai-desc">Generative fill, text-to-image and creative effects inside the Adobe workflow.</div>
+      </div></div>
+      <div class="ai-card"><div class="ai-card-in"><i class="ai-ring"></i>
+        <div class="ai-logo-wrap"><img class="ai-logo ai-app" src="assets/ai-logos/midjourney.png" alt="Midjourney logo" loading="lazy"/></div>
+        <div class="ai-name">Midjourney</div><div class="ai-cat">AI Image</div>
+        <div class="ai-desc">Concept art, poster visuals and moodboards from text prompts.</div>
+      </div></div>
+      <div class="ai-card"><div class="ai-card-in"><i class="ai-ring"></i>
+        <div class="ai-logo-wrap"><img class="ai-logo ai-app" src="assets/ai-logos/chatgpt.png" alt="ChatGPT logo" loading="lazy"/></div>
+        <div class="ai-name">ChatGPT</div><div class="ai-cat">AI Assistant</div>
+        <div class="ai-desc">Ideation, scripts, captions and creative direction.</div>
+      </div></div>
+      <div class="ai-card"><div class="ai-card-in"><i class="ai-ring"></i>
+        <div class="ai-logo-wrap"><img class="ai-logo" src="assets/ai-logos/gemini.svg" alt="Google Gemini logo" loading="lazy"/></div>
+        <div class="ai-name">Google Gemini</div><div class="ai-cat">AI Assistant</div>
+        <div class="ai-desc">Multimodal brainstorming, research and image generation.</div>
+      </div></div>
+      <div class="ai-card"><div class="ai-card-in"><i class="ai-ring"></i>
+        <div class="ai-logo-wrap"><img class="ai-logo" src="assets/ai-logos/kling.svg" alt="Kling AI logo" loading="lazy"/></div>
+        <div class="ai-name">Kling AI</div><div class="ai-cat">AI Video & Animation</div>
+        <div class="ai-desc">Image-to-video and cinematic AI animation.</div>
+      </div></div>
+      <div class="ai-card"><div class="ai-card-in"><i class="ai-ring"></i>
+        <div class="ai-logo-wrap"><img class="ai-logo" src="assets/ai-logos/luma.svg" alt="Luma Dream Machine logo" loading="lazy"/></div>
+        <div class="ai-name">Luma Dream Machine</div><div class="ai-cat">AI Video & Animation</div>
+        <div class="ai-desc">Realistic motion and camera moves from stills.</div>
+      </div></div>
+      <div class="ai-card"><div class="ai-card-in"><i class="ai-ring"></i>
+        <div class="ai-logo-wrap"><img class="ai-logo" src="assets/ai-logos/pika.svg" alt="Pika logo" loading="lazy"/></div>
+        <div class="ai-name">Pika</div><div class="ai-cat">AI Animation</div>
+        <div class="ai-desc">Quick animated clips, effects and stylised motion.</div>
+      </div></div>
+      <div class="ai-card"><div class="ai-card-in"><i class="ai-ring"></i>
+        <div class="ai-logo-wrap"><img class="ai-logo" src="assets/ai-logos/ideogram.svg" alt="Ideogram logo" loading="lazy"/></div>
+        <div class="ai-name">Ideogram</div><div class="ai-cat">AI Image</div>
+        <div class="ai-desc">AI images with accurate typography, ideal for posters and social graphics.</div>
+      </div></div>
+      <div class="ai-card"><div class="ai-card-in"><i class="ai-ring"></i>
+        <div class="ai-logo-wrap"><img class="ai-logo" src="assets/ai-logos/elevenlabs.svg" alt="ElevenLabs logo" loading="lazy"/></div>
+        <div class="ai-name">ElevenLabs</div><div class="ai-cat">AI Voice</div>
+        <div class="ai-desc">Natural voice-overs and dubbing for video edits.</div>
+      </div></div>
+      <div class="ai-card"><div class="ai-card-in"><i class="ai-ring"></i>
+        <div class="ai-logo-wrap"><img class="ai-logo" src="assets/ai-logos/sora.svg" alt="Sora logo" loading="lazy"/></div>
+        <div class="ai-name">Sora</div><div class="ai-cat">AI Video</div>
+        <div class="ai-desc">Text-to-video clips and cinematic b-roll generation.</div>
+      </div></div>
+      <div class="ai-card"><div class="ai-card-in"><i class="ai-ring"></i>
+        <div class="ai-logo-wrap"><img class="ai-logo" src="assets/ai-logos/capcut.svg" alt="CapCut AI logo" loading="lazy"/></div>
+        <div class="ai-name">CapCut AI</div><div class="ai-cat">AI Video Editing</div>
+        <div class="ai-desc">Auto captions, smart cutouts and AI effects for social video.</div>
+      </div></div>
+      <div class="ai-card"><div class="ai-card-in"><i class="ai-ring"></i>
+        <div class="ai-logo-wrap"><img class="ai-logo ai-app" src="assets/ai-logos/figma.png" alt="Figma logo" loading="lazy"/></div>
+        <div class="ai-name">Figma</div><div class="ai-cat">AI Design</div>
+        <div class="ai-desc">UI layouts, brand systems and collaborative design with AI assist.</div>
+      </div></div>
+      <div class="ai-card"><div class="ai-card-in"><i class="ai-ring"></i>
+        <div class="ai-logo-wrap"><img class="ai-logo ai-app" src="assets/ai-logos/dalle2.png" alt="DALL·E 2 logo" loading="lazy"/></div>
+        <div class="ai-name">DALL·E 2</div><div class="ai-cat">AI Image</div>
+        <div class="ai-desc">Text-to-image generation for quick visual concepts.</div>
+      </div></div>
+      <div class="ai-card"><div class="ai-card-in"><i class="ai-ring"></i>
+        <div class="ai-logo-wrap"><img class="ai-logo ai-app" src="assets/ai-logos/descript.png" alt="Descript logo" loading="lazy"/></div>
+        <div class="ai-name">Descript</div><div class="ai-cat">AI Video Editing</div>
+        <div class="ai-desc">Text-based editing, captions and filler-word removal.</div>
+      </div></div>
+      <div class="ai-card"><div class="ai-card-in"><i class="ai-ring"></i>
+        <div class="ai-logo-wrap"><img class="ai-logo ai-app" src="assets/ai-logos/lovable.png" alt="Lovable logo" loading="lazy"/></div>
+        <div class="ai-name">Lovable</div><div class="ai-cat">AI Web Design</div>
+        <div class="ai-desc">Turns ideas into working websites and landing pages.</div>
+      </div></div>
     </div>
   </div>
 </section>
@@ -1315,6 +1492,13 @@ footer span{font-size:11px;font-weight:400;color:rgba(255,255,255,.28)}
     <div class="lbl" data-r="u">Education</div>
     <h2 class="h2" data-r="u" style="margin-bottom:40px">Where I've studied.</h2>
     <div class="exp-list" data-sg>
+      <div class="exp-card">
+        <button class="exp-btn" onclick="toggleExp(this)">
+          <div><div class="exp-role">B.Voc Animation &amp; Graphic Design</div><div class="exp-co">Bachelor of Vocation · Degree Programme</div></div>
+          <div class="exp-meta"><div class="exp-date">Jun 2026 — Present</div><div class="exp-ico">+</div></div>
+        </button>
+        <div class="exp-body"><p>Pursuing a Bachelor of Vocation (B.Voc) in Animation and Graphic Design, building deeper skills in motion graphics, 2D/3D animation, visual communication and digital design.</p></div>
+      </div>
       <div class="exp-card">
         <button class="exp-btn" onclick="toggleExp(this)">
           <div><div class="exp-role">Higher Secondary</div><div class="exp-co">St Mary's HSS Murickassery</div></div>
